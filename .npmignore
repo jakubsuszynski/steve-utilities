@@ -1,4 +1,7 @@
-.nyc_output/
-coverage/
 node_modules/
 .idea/
+*.iml
+src
+tsconfig.json
+tslint.json
+.prettierrc
