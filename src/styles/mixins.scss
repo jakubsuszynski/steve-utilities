@@ -1,0 +1,98 @@
+$xs: 0;
+$sm: 576;
+$md: 768;
+$lg: 992;
+$xl: 1200;
+$xxl: 2000px;
+
+@mixin portrait {
+  @media all and (orientation: portrait) {
+    @content
+  }
+}
+
+@mixin landscape {
+  @media all and (orientation: landscape) {
+    @content
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$xl}px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$md + 1}px) and (max-width: #{$xl - 1}px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: #{$md}px) {
+    @content;
+  }
+}
+
+@mixin low-height {
+  @media (max-height: 690px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @include phone {
+    @content;
+  }
+  @include tablet {
+    @content;
+  }
+}
+
+@mixin desktop-or-tablet {
+  @include desktop {
+    @content;
+  }
+  @include tablet {
+    @content;
+  }
+}
+
+@mixin keyframes($animationName) {
+  @-webkit-keyframes #{$animationName} {
+    @content;
+  }
+  @-moz-keyframes #{$animationName} {
+    @content;
+  }
+  @-o-keyframes #{$animationName} {
+    @content;
+  }
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin animate($name, $duration, $iteration, $direction, $fillMode) {
+  -webkit-animation-duration: $duration;
+  -moz-animation-duration: $duration;
+  -o-animation-duration: $duration;
+  animation-duration: $duration;
+  -webkit-animation-iteration-count: $iteration;
+  -moz-animation-iteration-count: $iteration;
+  -o-animation-iteration-count: $iteration;
+  animation-iteration-count: $iteration;
+  -webkit-animation-fill-mode: $fillMode;
+  -moz-animation-fill-mode: $fillMode;
+  -o-animation-fill-mode: $fillMode;
+  animation-fill-mode: $fillMode;
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+  -webkit-animation-direction: $direction;
+  -moz-animation-direction: $direction;
+  -o-animation-direction: $direction;
+  animation-direction: $direction;
+}
